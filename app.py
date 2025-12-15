@@ -26,7 +26,7 @@ st.markdown("---")
 
 # Load and prepare data (exactly from your notebook)
 @st.cache_data
-def load_and_prepare_data():
+def load_data():
     # Load data
     data = pd.read_csv('houseSmallData.csv')
     train = data.iloc[0:100, :]
