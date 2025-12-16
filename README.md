@@ -37,15 +37,15 @@ Engineered features (TotalSF, HouseAge, QualitySize)
 ## Technology Stack
 
 
-Python: Core programming language
+*Python:* Core programming language
 
-Streamlit: Web application framework
+*Streamlit:* Web application framework
 
-scikit-learn: Machine learning (Linear Regression)
+*scikit-learn:* Machine learning (Linear Regression)
 
-Pandas & NumPy: Data manipulation
+*Pandas & NumPy:* Data manipulation
 
-Matplotlib & Seaborn: Data visualization
+*Matplotlib & Seaborn:* Data visualization
 
 
 ## Model Performance
