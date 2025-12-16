@@ -1,90 +1,94 @@
 # 🎈 House Price Prediction Model
-A machine learning web application that predicts house prices using linear regression analysis.
+A machine learning web application that predicts house prices using *linear regression* analysis.
 
 Live Demo
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://house-price-app-nhhtdeqb96jd2jxe8pbxyk.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://house-price-app-nhhtdeqb96jd2jxe8pbxyk.streamlit.app/) 
+
+
 
 ##  Features
 
 
-Interactive Predictions: Input house features and get instant price estimates
+* *Interactive Predictions:* Input house features and get instant price estimates
 
-Data Visualization: Explore price distributions and feature relationships
+* *Data Visualization:* Explore price distributions and feature relationships
 
-Correlation Analysis: View heatmaps and top correlated features
+* *Correlation Analysis:* View heatmaps and top correlated features
 
-Model Performance: R² score of 0.88+ (88% accuracy)
+* *Model Performance:* R² score of 0.88+ (88% accuracy)
+
+  
 
 ## Key Variables
 
 
-The model uses 8 features to predict house prices:
+* The model uses 8 features to predict house prices:
 
-Overall Quality (1-10 scale)
+* Overall Quality (1-10 scale)
 
-Living Area (sq ft)
+* Living Area (sq ft)
 
-Garage Area & Capacity
+* Garage Area & Capacity
 
-Total Square Footage
+* Total Square Footage
 
-Year Built
+* Year Built
 
-Engineered features (TotalSF, HouseAge, QualitySize)
+* Engineered features (TotalSF, HouseAge, QualitySize)
 
 
 ## Technology Stack
 
 
-*Python:* Core programming language
+* ***Python:*** Core programming language
 
-*Streamlit:* Web application framework
+* ***Streamlit:*** Web application framework
 
-*scikit-learn:* Machine learning (Linear Regression)
+* ***scikit-learn:*** Machine learning (Linear Regression)
 
-*Pandas & NumPy:* Data manipulation
+* ***Pandas & NumPy:*** Data manipulation
 
-*Matplotlib & Seaborn:* Data visualization
+* ***Matplotlib & Seaborn:*** Data visualization
 
 
 ## Model Performance
 
 
-Model Accuracy: R² = 0.88+ (explains 88% of price variance)
+* *Model Accuracy:* ***R² = 0.88+*** (explains 88% of price variance)
 
-Training Data: 100 residential properties
+* *Training Data:* ***100*** residential properties
 
-Features Used: 8 variables (5 original + 3 engineered)
+* *Features Used:* ***8*** variables (5 original + 3 engineered)
 
-Deployment: Live Streamlit web application
+* *Deployment:* Live Streamlit web application
 
 
 ## How to Use
 
 
-Visit the live app
+* Visit the live app
 
-Adjust house features using sliders
+* Adjust house features using sliders
 
-View predicted price instantly
+* View predicted price instantly
 
-Explore data analysis and visualizations
+* Explore data analysis and visualizations
 
 
 ## About
 
 
-This project demonstrates:
+* This project demonstrates:
 
-Data preprocessing and cleaning techniques
+* ***Data preprocessing*** and ***cleaning techniques***
 
-Feature engineering for improved model performance
+* ***Feature*** engineering for improved model performance
 
-Linear regression implementation with scikit-learn
+* ***Linear regression*** implementation with ***scikit-learn***
 
-Data visualization best practices
+* Data visualization best practices
 
-Interactive web application development
+* ***Interactive web application*** development
 
-Model deployment to cloud platform
+* Model deployment to cloud platform
