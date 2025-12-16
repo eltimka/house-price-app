@@ -16,10 +16,17 @@ st.markdown("Linear Regression Analysis")
 st.markdown("""
 This project creates a predictive model for house prices using linear regression and the Python Scikit-learn library.
 The goal is to improve upon original analysis by systematically expanding variable selection and applying advanced data preprocessing techniques.
-The methodology follows these key steps: (1) Import and explore the houseSmallData dataset, (2) Perform extensive data visualization to understand price distributions and variable relationships,
-(3) Clean data by handling missing values through interpolation, (4) Apply log transformation to normalize skewed price data, (5) Conduct correlation analysis to identify the strongest predictors,
-(6) Build and compare multiple linear regression models with different variable combinations, (7) Implement feature engineering to create new predictive variables, and (8) Validate model performance using proper train-test splits.
-The analysis specifically focuses on identifying numeric features most correlated with sale prices, testing at least three different variable combinations, and demonstrating measurable improvements over baseline approaches through R² score comparisons and residual analysis.
+The methodology follows these key steps:
+1. Import and explore the houseSmallData dataset.
+2. Perform extensive data visualization to understand price distributions and variable relationships.
+3. Clean data by handling missing values through interpolation.
+4. Apply log transformation to normalize skewed price data.
+5. Conduct correlation analysis to identify the strongest predictors.
+6. Build and compare multiple linear regression models with different variable combinations.
+7. Implement feature engineering to create new predictive variables.
+8. Validate model performance using proper train-test splits.
+The analysis specifically focuses on identifying numeric features most correlated with sale prices, testing at least three different variable combinations,
+and demonstrating measurable improvements over baseline approaches through R² score comparisons and residual analysis.
                 
 """)
 st.markdown("---")                
@@ -37,13 +44,13 @@ st.markdown("""
 quality ratings, location details, and sale prices. We use the first 100 houses for model training and analysis.
     """)
             
-# Prepare data (YOUR CODE)
+# Prepare data 
 @st.cache_data
 def prepare_data(train):
     # Handle missing values and select numeric data
     data = train.select_dtypes(include=[np.number]).interpolate().dropna(axis=1)
     
-    # Feature Engineering (YOUR CODE)
+    # Feature Engineering 
     data_enhanced = data.copy()
     data_enhanced['TotalSF'] = data_enhanced['GrLivArea'] + data_enhanced.get('TotalBsmtSF', 0)
     data_enhanced['HouseAge'] = 2023 - data_enhanced['YearBuilt']
@@ -51,7 +58,7 @@ def prepare_data(train):
     
     return data_enhanced
 
-# Train model (YOUR CODE)
+# Train model 
 @st.cache_resource
 def train_model(data_enhanced):
     # Select top correlated features (YOUR CODE)
@@ -98,7 +105,7 @@ with tab1:
     year_built = st.sidebar.number_input("Year Built", 1850, 2024, 2003, 1)
     total_bsmt_sf = st.sidebar.number_input("Basement Area (sq ft)", 0, 3000, 856, 50)
     
-    # Calculate engineered features (YOUR CODE)
+    # Calculate engineered features 
     total_sf = gr_liv_area + total_bsmt_sf
     house_age = 2023 - year_built
     quality_size = overall_qual * gr_liv_area
@@ -275,12 +282,19 @@ with tab2:
         ax.grid(True, alpha=0.3)
         st.pyplot(fig)
         st.caption("✓ Definitely a correlation between year built and price")
+      
+st.markdown("""
+**Results Analysis:** The original SalePrice distribution shows right-skewness (most houses priced modestly with few expensive outliers). Log transformation successfully normalizes the distribution
+with skewness near 0 (-0.096), making it suitable for linear regression. Strong positive correlations are visible between price and living area, garage area, overall quality, and year built.
+    """)
+
+
 
 # ==================== TAB 3: CORRELATION ====================
 with tab3:
     st.header(" Correlation Analysis")
     
-    # Top correlated features (YOUR CODE)
+    # Top correlated features
     numeric_enhanced = data_enhanced.select_dtypes(include=['number'])
     corr = numeric_enhanced.corr()
     top_corr = corr['SalePrice'].sort_values(ascending=False)[0:11]
@@ -326,9 +340,9 @@ with tab3:
     st.markdown("---")
     
     # Feature Engineering Success
-    st.subheader("✨ Engineered Features")
+    st.subheader("Engineered Features")
     st.markdown("""
-    **New features created (YOUR CODE):**
+    **New features created:**
     - **TotalSF** = GrLivArea + TotalBsmtSF
     - **HouseAge** = 2023 - YearBuilt
     - **QualitySize** = OverallQual × GrLivArea
@@ -373,7 +387,7 @@ with tab4:
     col1, col2 = st.columns(2)
     
     with col1:
-        # Residual histogram (YOUR CODE)
+        # Residual histogram
         st.markdown("**Residual Distribution**")
         fig, ax = plt.subplots(figsize=(8, 6))
         ax.hist(Y - predictions, bins=20, color='skyblue', edgecolor='black')
@@ -385,7 +399,7 @@ with tab4:
         st.caption("Residuals should be normally distributed around 0")
     
     with col2:
-        # Actual vs Predicted (YOUR CODE)
+        # Actual vs Predicted 
         st.markdown("**Actual vs Predicted Prices**")
         fig, ax = plt.subplots(figsize=(8, 6))
         ax.scatter(predictions, Y, color='r', alpha=0.6)
@@ -399,7 +413,7 @@ with tab4:
     
     st.markdown("---")
     
-    # Conclusions (YOUR TEXT)
+    # Conclusions 
     st.subheader(" Conclusions")
     st.markdown("""
     **Test Results Analysis:** The model demonstrates consistent performance across training, validation, 
